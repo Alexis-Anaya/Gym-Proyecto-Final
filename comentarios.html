@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Comentarios</title>
+</head>
+<body class="bg-info">
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center text-white" href="index.html">
+      <img src="Imagenes/Logo1.webp" alt="" width="50" height="50" class="me-2">
+      <span class="fw-bold">FitLife Gym</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header bg-dark">
+        <h5 class="offcanvas-title text-light" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body bg-dark">
+        <ul class="navbar-nav mb-2 mb-lg-0 justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active text-light" href="index.html" aria-current="page">Inicio</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Servicios
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="servicios.html">Pesas</a></li>
+            <li><a class="dropdown-item" href="servicios.html">Cardio</a></li>
+            <li><a class="dropdown-item" href="servicios.html">Clases Grupales</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="servicios.html">Entrenador Personal</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Planes
+          </a>
+          <ul id="MenuPlanes" class="dropdown-menu">
+            <li><a id="Menu1" class="dropdown-item" href="planes.html">Basico</a></li>
+            <li><a id="Menu2" class="dropdown-item" href="planes.html">Premium</a></li>
+            <li><a id="Menu3" class="dropdown-item text-light" href="planes.html">VIP</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="galeria.html">Galeria</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-light" href="contacto.html">Contacto</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-secondary disabled" href="comentarios.html" role="button">Comentarios</a>
+        </li>
+      </ul>
+      </div>
+    </div>
+    </div>
+  </div>
+</nav>
+
+<section class="mt-4 mx-4 py-4 px-4 bg-white bg-opacity-50 text-center text-black rounded ">
+    <h1 class="mb-4"> Sistema de Comentarios </h1>
+    <form id="comentarioForm">
+        <input type="text" id="Name" class="form-control mb-2" placeholder="Nombre" required>
+        <input type="email" id="email" class="form-control mb-2" placeholder="Correo Electronico" required>
+        <textarea id="Comentario" class="form-control mb-2" placeholder="Comentario" required rows="3"></textarea>
+        <label for="range4" class="form-label">☆ Calificacion por Estrellas ☆</label>
+        <input input type="range" class="form-range" min="0" max="5" id="range4">
+        <br>
+        <!--<output for="range4" id="rangeValue" aria-hidden="true"></output>-->
+        <p id="mensaje">☆ Por defecto son 3 estrellas ☆</p>
+        <button type="button" class="btn btn-primary" onclick="agregarHabitacion()"> Publicar </button>
+    </form>
+    </section>
+    
+</div>
+    <section class="mb-3"></section>
+    <section class="mt-4 mx-4 py-4 px-4 bg-white bg-opacity-50 text-center text-black rounded ">
+      <h2>Comentarios anteriores:</h2>
+    <div id="contenedor" class="row text-start"></div>
+    </section>
+    <section style="margin-bottom: 100px;"></section>
+    <!--<button class="btn btn-success mt-4" onclick="descargarJSON()"> Descargar JSON Actualizado </button>-->
+
+    <footer class="bg-dark text-white text-center p-3 mt-4">
+        <p>©2026 FitLife Gym</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+      // This is an example script, please modify as needed
+      const rangeInput = document.getElementById('range4');
+      const rangeOutput = document.getElementById('rangeValue');
+
+      if (rangeInput && rangeOutput) {
+        rangeOutput.textContent = rangeInput.value;
+        rangeInput.addEventListener('input', function() {
+          rangeOutput.textContent = this.value;
+        });
+        rangeInput.addEventListener('change', function() { 
+          document.getElementById('mensaje').textContent = '☆ Seleccionaste: ' + rangeInput.value + ' estrellas ☆';
+        });
+      } else if (rangeInput) {
+        rangeInput.addEventListener('change', function() { 
+          document.getElementById('mensaje').textContent = '☆ Seleccionaste: ' + rangeInput.value + ' estrellas ☆';
+        });
+      }
+
+        let habitaciones = [{Name:'Prueba',Estrellas:'3',Email:'Prueba@gmail.com',Comentario:'Esto es una prueba'}];
+        /*fetch("habitaciones.json")
+        .then(respuesta => respuesta.json())
+        .then(datos => { 
+            habitaciones = datos;
+            mostrarHabitaciones();
+    });*/
+    /*Es necesario ejecutarlo en un servidor web, debido a que windows esta bloqueando el archivo JSON de manera local, lo que provoca un error en el fetch*/
+
+    function mostrarHabitaciones(){ 
+        let contenedor = document.getElementById("contenedor");
+        contenedor.innerHTML = ""; habitaciones.forEach(h => {
+            contenedor.innerHTML += `
+            <div class="col-md-4 mb-3">
+                <div id="comment" class="card shadow">
+                    <div class="card-body">
+                        <h3>
+                            ${h.Name} - ${h.Estrellas}☆
+                        </h3>
+                        <p> ${h.Email} </p>
+                        <p> ${h.Comentario} </p>
+                    </div>
+                </div>
+            </div> `;
+        });
+     }
+
+     function agregarHabitacion(){
+        const nameValue = document.getElementById("Name").value.trim();
+        const stars = document.getElementById("range4").value.trim();
+        const emailValue = document.getElementById("email").value.trim();
+        const comentarioValue = document.getElementById("Comentario").value.trim();
+
+        if (nameValue === "" || emailValue === "" || comentarioValue === "") {
+            alert("Por favor completa todos los campos antes de publicar.");
+            return;
+        }
+
+        let nuevaHabitacion = {
+            Name: nameValue,
+            Estrellas: stars,
+            Email: emailValue,
+            Comentario: comentarioValue,
+        };
+
+        habitaciones.push(nuevaHabitacion);
+        mostrarHabitaciones();
+        document.getElementById("Name").value = "";
+        document.getElementById("range4").value = "";      
+        if (document.getElementById('rangeValue')) document.getElementById('rangeValue').textContent = '';
+        document.getElementById("email").value = "";
+        document.getElementById("Comentario").value = "";
+        document.getElementById('mensaje').textContent = '';
+    }
+
+    /*function descargarJSON(){ let datosJSON = JSON.stringify( habitaciones, null, 2 );
+        let blob = new Blob( [datosJSON], {type:"application/json"} );
+        let enlace = document.createElement("a");
+        enlace.href = URL.createObjectURL(blob);
+        enlace.download = "habitaciones_actualizadas.json";
+        enlace.click(); }*/
+    mostrarHabitaciones();
+    </script>
+</body>
+</html>

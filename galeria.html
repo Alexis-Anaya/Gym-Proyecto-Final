@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <title>FitLife Gym - Galeria</title>
+</head>
+<body class="bg-info">
+    <nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center text-white" href="index.html">
+      <img src="Imagenes/Logo1.webp" alt="" width="50" height="50" class="me-2">
+      <span class="fw-bold">FitLife Gym</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header bg-dark">
+        <h5 class="offcanvas-title text-light" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body bg-dark">
+        <ul class="navbar-nav mb-2 mb-lg-0 justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active text-light" href="index.html" aria-current="page">Inicio</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Servicios
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="servicios.html">Pesas</a></li>
+            <li><a class="dropdown-item" href="servicios.html">Cardio</a></li>
+            <li><a class="dropdown-item" href="servicios.html">Clases Grupales</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="servicios.html">Entrenador Personal</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Planes
+          </a>
+          <ul id="MenuPlanes" class="dropdown-menu">
+            <li><a id="Menu1" class="dropdown-item" href="planes.html">Basico</a></li>
+            <li><a id="Menu2" class="dropdown-item" href="planes.html">Premium</a></li>
+            <li><a id="Menu3" class="dropdown-item text-light" href="planes.html">VIP</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary disabled" href="galeria.html">Galeria</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-light" href="contacto.html">Contacto</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-light" href="comentarios.html" role="button">Comentarios</a>
+        </li>
+        <!--<li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Este boton no funciona :C</a>
+        </li>-->
+      </ul>
+      </div>
+    </div>
+    </div>
+  </div>
+</nav>
+    <!--<header class="bg-primary p-3 align-middle">
+        <section class="container-fluid d-flex flex-column flex-md-row align-items-center text-white">
+            <div class="d-flex flex-row align-items-center">
+                <img src="Imagenes/Logo1.webp" alt="" width="100px" height="100px">
+                <h1 class="ms-4 fw-bold">FitLife Gym</h1>
+            </div>
+        </section>
+    </header>
+    <nav class="navbar bg-dark d-flex justify-content-end align-items-center col-12">
+            <a class="fs-5 btn btn-outline-light btn-lm  me-3" href="index.html">Inicio</a>
+            <a class="fs-5 btn btn-outline-light btn-lm me-3" href="servicios.html">Servicios</a>
+            <a class="fs-5 btn btn-outline-light btn-lm me-3" href="planes.html">Planes</a>
+            <a class="fs-5 btn btn-secondary btn-lm me-3 disabled" href="galeria.html">Galeria</a>
+            <a class="fs-5 btn btn-outline-light btn-lm me-3" href="contacto.html">Contacto</a>
+    </nav>-->
+
+    <section class="container mt-4 py-4 bg-white bg-opacity-50 rounded text-center">
+        <h1>Imagenes de nuestras sucursales:</h1>
+        <!--<section class="row g-3 justify-content-center">
+            <img src="Imagenes/Gim01.jpg" class="img-fluid p-3 col-12 col-sm-6 col-lg-3">
+            <img src="Imagenes/Gal02.jpg" class="img-fluid p-3 col-12 col-sm-6 col-lg-3">
+            <img src="Imagenes/Gal03.avif" class="img-fluid p-3 col-12 col-sm-6 col-lg-3">
+            <img src="Imagenes/Gal04.jpeg" class="img-fluid p-3 col-12 col-sm-6 col-lg-3">
+            <img src="Imagenes/Gal05.webp" class="img-fluid p-3 col-12 col-sm-6 col-lg-3">
+            <img src="Imagenes/Gal06.jpg" class="img-fluid p-3 col-12 col-sm-6 col-lg-3">
+            <img src="Imagenes/Gal07.jpg" class="img-fluid p-3 col-12 col-sm-6 col-lg-3">
+            <img src="Imagenes/Gal08.jpg" class="img-fluid p-3 col-12 col-sm-6 col-lg-3" >
+            <img src="Imagenes/Gal09.jpg" class="img-fluid p-3 col-12 col-sm-6 col-lg-3">
+        </section>-->
+<div id="carouselExampleFade" class="carousel slide carousel-fade mx-auto" data-bs-ride="carousel">
+  <div id="Galeria" class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="Imagenes/Gal01.avif" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="Imagenes/Gal02.jpg" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="Imagenes/Gal03.avif" class="d-block w-100 img-fluid" alt="...">
+    </div>
+
+    <div class="carousel-item">
+      <img src="Imagenes/Gal04.jpeg" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="Imagenes/Gal05.webp" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="Imagenes/Gal06.jpg" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="Imagenes/Gal07.jpg" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="Imagenes/Gal08.jpg" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="Imagenes/Gal09.jpg" class="d-block w-100 img-fluid" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+    </section>
+<section style="margin-bottom: 100px;"></section>
+    <footer class="bg-dark text-white text-center p-3 mt-4 fixed-bottom">
+        <p>©2026 FitLife Gym</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
