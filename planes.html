@@ -8,24 +8,7 @@
     <title>Planes</title>
 </head>
 <body class="bg-info">
-    <!--<header class="bg-primary p-3 align-middle">
-        <section class="container-fluid d-flex flex-column flex-md-row align-items-center text-white">
-            <div class="d-flex flex-row align-items-center">
-                <img src="Imagenes/Logo1.webp" alt="" width="100px" height="100px">
-                <h1 class="ms-4 fw-bold">FitLife Gym</h1>
-            </div>
-        </section>
-    </header>
-
-    <nav class="navbar bg-dark d-flex justify-content-end align-items-center col-12"> <!--Utilizar dropdown-->
-        <!--
-            <a class="fs-5 btn btn-outline-light btn-lm me-3" href="index.html">Inicio</a>
-            <a class="fs-5 btn btn-outline-light btn-lm  me-3" href="servicios.html">Servicios</a>
-            <a class="fs-5 btn btn-secondary btn-lm disabled me-3" href="planes.html">Planes</a>
-            <a class="fs-5 btn btn-outline-light btn-lm me-3" href="galeria.html">Galeria</a>
-            <a class="fs-5 btn btn-outline-light btn-lm me-3" href="contacto.html">Contacto</a>
-    </nav>-->
-    <nav class="navbar navbar-expand-lg bg-dark">
+<nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand d-flex align-items-center text-white" href="index.html">
       <img src="Imagenes/Logo1.webp" alt="" width="50" height="50" class="me-2">
@@ -78,9 +61,6 @@
         <li class="nav-item">
           <a class="nav-link text-light" href="comentarios.html" role="button">Comentarios</a>
         </li>
-        <!--<li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Este boton no funciona :C</a>
-        </li>-->
       </ul>
       </div>
     </div>
@@ -90,56 +70,14 @@
 
     <section class="mt-4 mx-4 py-4 bg-white bg-opacity-50 text-center text-black rounded ">
         <h1>Planes</h1>
-        <section class="row justify-content-center g-3">
-            <!--g-3 añade espacio uniforme entre ellas-->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div id="Basico" class="card p-3 text-bg-white bg-opacity-100">
-                    <h3 class="card-text">Basico</h3>
-                    <h4>¡Entrena lo que gustas en tu sucursal y paga menos!</h4>
-                    <h5>$400/mes</h5>
-                    <h5>o $3000/año</h5>
-                    <a class="fs-5 btn btn-warning btn-sm me-3" href="#Cuestionario" role="button">¡Comienza ahora!</a>
-                    <!--<button class="fs-5 btn btn-warning btn-sm me-3" href="#Boton">¡Comienza ahora!</button>-->
-                    <p>- Clases grupales con profesores</p>
-                    <p>- Membresia individual</p>
-                    <p>- Acceso a todas las áreas de peso libre e integrado</p>
-                    <p>- Rellena tu botella de agua sin cargo adicional (Aplican restricciones)</p>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card p-3 text-bg-warning bg-opacity-100">
-                    <h4 class="card-header">El mas popular en vacaciones</h4>
-                    <h3 class="card-text">Premium</h3>
-                    <h4>¡Entrena cuando quieras en tu gimnasio de eleccion!</h4>
-                    <h5>$450/mes</h5>
-                    <h5>o $4750/año</h5>
-                    <a class="fs-5 btn btn-dark btn-sm me-3" href="#Cuestionario" role="button">¡Comienza ahora!</a>
-                    <!--<button class="fs-5 btn btn-dark btn-sm me-3">¡Comienza ahora!</button>-->
-                    <p>- Entrenamientos en linea</p>
-                    <p>- Membresia valida para 2 personas</p>
-                    <p>- 30% de Descuento en nuestros productos</p>
-                    <p>- Beneficios del plan Basico</p>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card p-3 text-bg-dark bg-opacity-100">
-                    <h3 class="card-text">VIP</h3>
-                    <h4>¡Entrena en todas nuestras sucursales sin costo adicional!</h4>
-                    <h5>$600/mes</h5>
-                    <h5>o $6000/año</h5>
-                    <!--<button class="fs-5 btn btn-warning btn-sm me-3">¡Comienza ahora!</button>-->
-                    <a class="fs-5 btn btn-warning btn-sm me-3" href="#Cuestionario" role="button">¡Comienza ahora!</a>
-                    <p>- Acceso ilimitado a +2000 gimnasios de la red</p>
-                    <p>- Membresia valida para 3 personas</p>
-                    <p>- Sillones de masaje</p>
-                    <p>- Beneficios del plan Premium</p>
-                </div>
-            </div>
+        <!-- Los planes se renderizan desde planes.json -->
+        <section id="contenedorPlanes" class="row justify-content-center g-3">
+            <p class="text-muted">Cargando planes...</p>
         </section>
     </section>
 
     <section class="mt-4 mx-4 py-4 bg-white bg-opacity-50 text-center text-black rounded ">
-        <h2 id="Cuestionario">¿Es tu primera vez? ¡20% de descuento en tu primer mes!</h1>
+        <h2 id="Cuestionario">¿Es tu primera vez? ¡20% de descuento en tu primer mes!</h2>
         <h1>¡Inscribete ya!</h1>
         <form class="mx-5" id="formulario">
             <div class="mb-3">
@@ -194,7 +132,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
       </div>
     </div>
   </div>
@@ -204,9 +141,94 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script>
+      // ─── VALIDAR estructura JSON de planes ───────────────────────────────────
+      function validarPlanes(datos) {
+        if (!Array.isArray(datos)) return false;
+        return datos.every(p =>
+          typeof p === 'object' && p !== null &&
+          'nombre' in p && 'precioMes' in p && 'beneficios' in p
+        );
+      }
+
+      // ─── RENDERIZAR planes desde el arreglo JSON (recorrer con forEach) ─────
+      function renderizarPlanes(planes) {
+        const contenedor = document.getElementById('contenedorPlanes');
+        contenedor.innerHTML = '';
+
+        // Recorrer arreglo JSON
+        planes.forEach(plan => {
+          const popularBadge = plan.popular
+            ? `<h4 class="card-header">El mas popular en vacaciones</h4>` : '';
+          const beneficiosHTML = plan.beneficios
+            .map(b => `<p>- ${b}</p>`).join('');
+
+          contenedor.innerHTML += `
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div id="${plan.nombre}" class="card p-3 ${plan.color} bg-opacity-100">
+                ${popularBadge}
+                <h3 class="card-text">${plan.nombre}</h3>
+                <h4>${plan.descripcion}</h4>
+                <h5>$${plan.precioMes}/mes</h5>
+                <h5>o $${plan.precioAnio}/año</h5>
+                <a class="fs-5 btn ${plan.btnColor} btn-sm me-3" href="#Cuestionario" role="button">¡Comienza ahora!</a>
+                ${beneficiosHTML}
+              </div>
+            </div>`;
+        });
+      }
+
+      // ─── Cargar planes desde JSON ────────────────────────────────────────────
+      // Intentar fetch; si falla (archivo local), usar datos embebidos
+      const planesEmbebidos = [
+        {
+          id:1, nombre:"Basico", precioMes:400, precioAnio:3000,
+          descripcion:"¡Entrena lo que gustas en tu sucursal y paga menos!",
+          color:"text-bg-white", btnColor:"btn-warning", popular:false,
+          beneficios:["Clases grupales con profesores","Membresia individual",
+            "Acceso a todas las áreas de peso libre e integrado",
+            "Rellena tu botella de agua sin cargo adicional (Aplican restricciones)"]
+        },
+        {
+          id:2, nombre:"Premium", precioMes:450, precioAnio:4750,
+          descripcion:"¡Entrena cuando quieras en tu gimnasio de eleccion!",
+          color:"text-bg-warning", btnColor:"btn-dark", popular:true,
+          beneficios:["Entrenamientos en linea","Membresia valida para 2 personas",
+            "30% de Descuento en nuestros productos","Beneficios del plan Basico"]
+        },
+        {
+          id:3, nombre:"VIP", precioMes:600, precioAnio:6000,
+          descripcion:"¡Entrena en todas nuestras sucursales sin costo adicional!",
+          color:"text-bg-dark", btnColor:"btn-warning", popular:false,
+          beneficios:["Acceso ilimitado a +2000 gimnasios de la red",
+            "Membresia valida para 3 personas","Sillones de masaje",
+            "Beneficios del plan Premium"]
+        }
+      ];
+
+      fetch('data/planes.json')
+        .then(res => {
+          if (!res.ok) throw new Error('No se pudo cargar planes.json');
+          return res.json();
+        })
+        .then(datos => {
+          // Validar estructura JSON antes de renderizar
+          if (!validarPlanes(datos)) {
+            console.warn('Estructura JSON inválida, usando datos embebidos.');
+            renderizarPlanes(planesEmbebidos);
+            return;
+          }
+          // Convertir JSON a objetos JS y renderizar
+          renderizarPlanes(JSON.parse(JSON.stringify(datos)));
+        })
+        .catch(() => {
+          // Fallback: usar datos embebidos (para uso local sin servidor)
+          renderizarPlanes(planesEmbebidos);
+        });
+
+      // ─── Formulario de inscripción (lógica original intacta) ─────────────────
       let formulario = document.getElementById("formulario");
       formulario.addEventListener("submit", function(event) {
-        event.preventDefault(); // evita recargar
+        event.preventDefault();
         let Name = document.getElementById("nombre1").value;
         let Edad = document.getElementById("edad").value;
         let Altura = document.getElementById("altura").value;
