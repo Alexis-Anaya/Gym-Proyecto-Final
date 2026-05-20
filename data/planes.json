@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "nombre": "Basico",
+    "precioMes": 400,
+    "precioAnio": 3000,
+    "descripcion": "¡Entrena lo que gustas en tu sucursal y paga menos!",
+    "color": "text-bg-white",
+    "btnColor": "btn-warning",
+    "popular": false,
+    "beneficios": [
+      "Clases grupales con profesores",
+      "Membresia individual",
+      "Acceso a todas las áreas de peso libre e integrado",
+      "Rellena tu botella de agua sin cargo adicional (Aplican restricciones)"
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Premium",
+    "precioMes": 450,
+    "precioAnio": 4750,
+    "descripcion": "¡Entrena cuando quieras en tu gimnasio de eleccion!",
+    "color": "text-bg-warning",
+    "btnColor": "btn-dark",
+    "popular": true,
+    "beneficios": [
+      "Entrenamientos en linea",
+      "Membresia valida para 2 personas",
+      "30% de Descuento en nuestros productos",
+      "Beneficios del plan Basico"
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "VIP",
+    "precioMes": 600,
+    "precioAnio": 6000,
+    "descripcion": "¡Entrena en todas nuestras sucursales sin costo adicional!",
+    "color": "text-bg-dark",
+    "btnColor": "btn-warning",
+    "popular": false,
+    "beneficios": [
+      "Acceso ilimitado a +2000 gimnasios de la red",
+      "Membresia valida para 3 personas",
+      "Sillones de masaje",
+      "Beneficios del plan Premium"
+    ]
+  }
+]
