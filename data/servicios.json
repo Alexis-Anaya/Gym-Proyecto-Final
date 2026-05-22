@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "nombre": "Pesas",
+    "descripcion": "Un entrenamiento con pesas eficaz depende de una técnica correcta. Las mancuernas permiten incrementar de peso en las cargas de forma progresiva.",
+    "imagen": "Imagenes/Pesas.webp",
+    "categoria": "fuerza",
+    "disponible": true
+  },
+  {
+    "id": 2,
+    "nombre": "Cardio",
+    "descripcion": "El entrenamiento de cardio incluye actividades como caminar, andar en bicicleta, correr, nadar e incluso bailar.",
+    "imagen": "Imagenes/Cardio.jpg",
+    "categoria": "cardio",
+    "disponible": true
+  },
+  {
+    "id": 3,
+    "nombre": "Clases Grupales",
+    "descripcion": "El fitness grupal abarca cualquier forma de ejercicio realizada en grupo, dirigida por un entrenador personal o instructor.",
+    "imagen": "Imagenes/ClaseGrupal.avif",
+    "categoria": "grupal",
+    "disponible": true
+  },
+  {
+    "id": 4,
+    "nombre": "Entrenador Personal",
+    "descripcion": "Tanto para principiantes como para profesionales. Los instructores te indican el entrenamiento más eficaz según tus necesidades.",
+    "imagen": "Imagenes/Ent-Personañ.jpg",
+    "categoria": "personal",
+    "disponible": true
+  }
+]

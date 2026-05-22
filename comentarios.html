@@ -77,98 +77,334 @@
         <label for="range4" class="form-label">☆ Calificacion por Estrellas ☆</label>
         <input input type="range" class="form-range" min="0" max="5" id="range4">
         <br>
-        <!--<output for="range4" id="rangeValue" aria-hidden="true"></output>-->
         <p id="mensaje">☆ Por defecto son 3 estrellas ☆</p>
         <button type="button" class="btn btn-primary" onclick="agregarHabitacion()"> Publicar </button>
     </form>
-    </section>
-    
+</section>
+
+<!-- Panel de administración JSON -->
+<section class="mt-4 mx-4 py-4 px-4 bg-white bg-opacity-50 text-black rounded">
+    <h2 class="text-center mb-3">Administrar Comentarios</h2>
+    <div class="row g-2 justify-content-center mb-3">
+        <div class="col-12 col-md-4">
+            <input type="text" id="buscarInput" class="form-control" placeholder="🔍 Buscar por nombre o comentario...">
+        </div>
+        <div class="col-6 col-md-2">
+            <select id="filtroEstrellas" class="form-select">
+                <option value="">⭐ Todas</option>
+                <option value="5">5 ☆</option>
+                <option value="4">4 ☆</option>
+                <option value="3">3 ☆</option>
+                <option value="2">2 ☆</option>
+                <option value="1">1 ☆</option>
+                <option value="0">0 ☆</option>
+            </select>
+        </div>
+        <div class="col-6 col-md-2">
+            <button class="btn btn-secondary w-100" onclick="limpiarFiltros()">Limpiar filtros</button>
+        </div>
+        <div class="col-6 col-md-2">
+            <button class="btn btn-success w-100" onclick="exportarJSON()">⬇ Exportar JSON</button>
+        </div>
+        <div class="col-6 col-md-2">
+            <button class="btn btn-warning w-100" onclick="importarJSON()">⬆ Importar JSON</button>
+            <input type="file" id="archivoJSON" accept=".json" style="display:none" onchange="cargarArchivoJSON(event)">
+        </div>
+    </div>
+    <p id="totalComentarios" class="text-center text-muted small"></p>
+</section>
+
+<section class="mb-3"></section>
+<section class="mt-4 mx-4 py-4 px-4 bg-white bg-opacity-50 text-center text-black rounded ">
+  <h2>Comentarios anteriores:</h2>
+<div id="contenedor" class="row text-start"></div>
+</section>
+
+<!-- Modal para editar comentario -->
+<div class="modal fade" id="editarModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Comentario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="editId">
+        <div class="mb-2">
+          <label class="form-label">Nombre</label>
+          <input type="text" id="editName" class="form-control">
+        </div>
+        <div class="mb-2">
+          <label class="form-label">Email</label>
+          <input type="email" id="editEmail" class="form-control">
+        </div>
+        <div class="mb-2">
+          <label class="form-label">Comentario</label>
+          <textarea id="editComentario" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="mb-2">
+          <label class="form-label">Estrellas (0-5)</label>
+          <input type="number" id="editEstrellas" class="form-control" min="0" max="5">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="guardarEdicion()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
 </div>
-    <section class="mb-3"></section>
-    <section class="mt-4 mx-4 py-4 px-4 bg-white bg-opacity-50 text-center text-black rounded ">
-      <h2>Comentarios anteriores:</h2>
-    <div id="contenedor" class="row text-start"></div>
-    </section>
-    <section style="margin-bottom: 100px;"></section>
-    <!--<button class="btn btn-success mt-4" onclick="descargarJSON()"> Descargar JSON Actualizado </button>-->
 
-    <footer class="bg-dark text-white text-center p-3 mt-4">
-        <p>©2026 FitLife Gym</p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script>
-      // This is an example script, please modify as needed
-      const rangeInput = document.getElementById('range4');
-      const rangeOutput = document.getElementById('rangeValue');
+<section style="margin-bottom: 100px;"></section>
 
-      if (rangeInput && rangeOutput) {
-        rangeOutput.textContent = rangeInput.value;
-        rangeInput.addEventListener('input', function() {
-          rangeOutput.textContent = this.value;
-        });
-        rangeInput.addEventListener('change', function() { 
-          document.getElementById('mensaje').textContent = '☆ Seleccionaste: ' + rangeInput.value + ' estrellas ☆';
-        });
-      } else if (rangeInput) {
-        rangeInput.addEventListener('change', function() { 
-          document.getElementById('mensaje').textContent = '☆ Seleccionaste: ' + rangeInput.value + ' estrellas ☆';
-        });
+<footer class="bg-dark text-white text-center p-3 mt-4">
+    <p>©2026 FitLife Gym</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script>
+  // ─── Rango de estrellas ────────────────────────────────────────────────────
+  const rangeInput = document.getElementById('range4');
+  const rangeOutput = document.getElementById('rangeValue');
+
+  if (rangeInput && rangeOutput) {
+    rangeOutput.textContent = rangeInput.value;
+    rangeInput.addEventListener('input', function() {
+      rangeOutput.textContent = this.value;
+    });
+    rangeInput.addEventListener('change', function() { 
+      document.getElementById('mensaje').textContent = '☆ Seleccionaste: ' + rangeInput.value + ' estrellas ☆';
+    });
+  } else if (rangeInput) {
+    rangeInput.addEventListener('change', function() { 
+      document.getElementById('mensaje').textContent = '☆ Seleccionaste: ' + rangeInput.value + ' estrellas ☆';
+    });
+  }
+
+  // ─── DATOS en JSON (arreglo principal) ────────────────────────────────────
+  // Convertir objeto a JSON: se usa JSON.parse / JSON.stringify en toda la lógica
+  let habitaciones = JSON.parse(JSON.stringify([
+    {id:1, Name:'Prueba', Estrellas:'3', Email:'Prueba@gmail.com', Comentario:'Esto es una prueba'}
+  ]));
+
+  let nextId = 2; // contador de IDs
+
+  // ─── VALIDAR estructura JSON ───────────────────────────────────────────────
+  function validarEstructuraJSON(datos) {
+    if (!Array.isArray(datos)) return false;
+    return datos.every(item =>
+      typeof item === 'object' && item !== null &&
+      'Name' in item &&
+      'Estrellas' in item &&
+      'Email' in item &&
+      'Comentario' in item
+    );
+  }
+
+  // ─── MOSTRAR (recorrer arreglo JSON con forEach) ───────────────────────────
+  function mostrarHabitaciones(lista) { 
+    // Si no se pasa lista, usar el arreglo completo
+    let datos = lista !== undefined ? lista : habitaciones;
+    let contenedor = document.getElementById("contenedor");
+    contenedor.innerHTML = "";
+
+    // Recorrer arreglo JSON
+    datos.forEach(h => {
+      contenedor.innerHTML += `
+      <div class="col-md-4 mb-3">
+          <div id="comment" class="card shadow">
+              <div class="card-body">
+                  <h3>${h.Name} - ${h.Estrellas}☆</h3>
+                  <p>${h.Email}</p>
+                  <p>${h.Comentario}</p>
+                  <div class="d-flex gap-2">
+                    <button class="btn btn-sm btn-outline-primary" onclick="abrirEditar(${h.id})">✏ Editar</button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="eliminarComentario(${h.id})">🗑 Eliminar</button>
+                  </div>
+              </div>
+          </div>
+      </div>`;
+    });
+
+    // Mostrar total (recorrido para contar)
+    document.getElementById('totalComentarios').textContent =
+      `Total de comentarios: ${habitaciones.length} | Mostrando: ${datos.length}`;
+  }
+
+  // ─── AGREGAR nuevo elemento al arreglo JSON ────────────────────────────────
+  function agregarHabitacion(){
+    const nameValue = document.getElementById("Name").value.trim();
+    const stars = document.getElementById("range4").value.trim();
+    const emailValue = document.getElementById("email").value.trim();
+    const comentarioValue = document.getElementById("Comentario").value.trim();
+
+    if (nameValue === "" || emailValue === "" || comentarioValue === "") {
+        alert("Por favor completa todos los campos antes de publicar.");
+        return;
+    }
+
+    // Validar email básico
+    if (!emailValue.includes("@") || !emailValue.includes(".")) {
+        alert("Por favor ingresa un correo electrónico válido.");
+        return;
+    }
+
+    // Convertir a objeto JSON y agregar al arreglo
+    let nuevaHabitacion = JSON.parse(JSON.stringify({
+        id: nextId++,
+        Name: nameValue,
+        Estrellas: stars,
+        Email: emailValue,
+        Comentario: comentarioValue,
+    }));
+
+    habitaciones.push(nuevaHabitacion);  // Agregar elemento
+    mostrarHabitaciones();
+    limpiarFiltros();
+
+    document.getElementById("Name").value = "";
+    document.getElementById("range4").value = "";      
+    if (document.getElementById('rangeValue')) document.getElementById('rangeValue').textContent = '';
+    document.getElementById("email").value = "";
+    document.getElementById("Comentario").value = "";
+    document.getElementById('mensaje').textContent = '☆ Comentario publicado ☆';
+    setTimeout(() => { document.getElementById('mensaje').textContent = '☆ Por defecto son 3 estrellas ☆'; }, 2000);
+  }
+
+  // ─── BUSCAR información en el arreglo JSON ────────────────────────────────
+  function buscarComentarios() {
+    const termino = document.getElementById('buscarInput').value.trim().toLowerCase();
+    const estrellas = document.getElementById('filtroEstrellas').value;
+
+    // Filtrar datos según búsqueda y estrellas
+    let resultado = habitaciones.filter(h => {
+      const coincideTexto = termino === '' ||
+        h.Name.toLowerCase().includes(termino) ||
+        h.Comentario.toLowerCase().includes(termino) ||
+        h.Email.toLowerCase().includes(termino);
+      const coincideEstrellas = estrellas === '' || h.Estrellas === estrellas;
+      return coincideTexto && coincideEstrellas;
+    });
+
+    mostrarHabitaciones(resultado);
+  }
+
+  // ─── ELIMINAR registro del arreglo JSON ───────────────────────────────────
+  function eliminarComentario(id) {
+    if (!confirm("¿Seguro que deseas eliminar este comentario?")) return;
+    // Filtrar para eliminar por id
+    habitaciones = habitaciones.filter(h => h.id !== id);
+    mostrarHabitaciones();
+  }
+
+  // ─── MODIFICAR datos: abrir modal de edición ──────────────────────────────
+  function abrirEditar(id) {
+    // Buscar elemento por id
+    const comentario = habitaciones.find(h => h.id === id);
+    if (!comentario) return;
+
+    document.getElementById('editId').value = id;
+    document.getElementById('editName').value = comentario.Name;
+    document.getElementById('editEmail').value = comentario.Email;
+    document.getElementById('editComentario').value = comentario.Comentario;
+    document.getElementById('editEstrellas').value = comentario.Estrellas;
+
+    const modal = new bootstrap.Modal(document.getElementById('editarModal'));
+    modal.show();
+  }
+
+  // ─── MODIFICAR datos: guardar edición ─────────────────────────────────────
+  function guardarEdicion() {
+    const id = parseInt(document.getElementById('editId').value);
+    const nuevoName = document.getElementById('editName').value.trim();
+    const nuevoEmail = document.getElementById('editEmail').value.trim();
+    const nuevoComentario = document.getElementById('editComentario').value.trim();
+    const nuevoEstrellas = document.getElementById('editEstrellas').value;
+
+    if (!nuevoName || !nuevoEmail || !nuevoComentario) {
+      alert("Todos los campos son obligatorios.");
+      return;
+    }
+
+    // Modificar datos del objeto en el arreglo
+    habitaciones = habitaciones.map(h => {
+      if (h.id === id) {
+        return { ...h, Name: nuevoName, Email: nuevoEmail, Comentario: nuevoComentario, Estrellas: nuevoEstrellas };
       }
+      return h;
+    });
 
-        let habitaciones = [{Name:'Prueba',Estrellas:'3',Email:'Prueba@gmail.com',Comentario:'Esto es una prueba'}];
-        /*fetch("habitaciones.json")
-        .then(respuesta => respuesta.json())
-        .then(datos => { 
-            habitaciones = datos;
-            mostrarHabitaciones();
-    });*/
-    /*Es necesario ejecutarlo en un servidor web, debido a que windows esta bloqueando el archivo JSON de manera local, lo que provoca un error en el fetch*/
+    const modal = bootstrap.Modal.getInstance(document.getElementById('editarModal'));
+    modal.hide();
+    mostrarHabitaciones();
+    limpiarFiltros();
+  }
 
-    function mostrarHabitaciones(){ 
-        let contenedor = document.getElementById("contenedor");
-        contenedor.innerHTML = ""; habitaciones.forEach(h => {
-            contenedor.innerHTML += `
-            <div class="col-md-4 mb-3">
-                <div id="comment" class="card shadow">
-                    <div class="card-body">
-                        <h3>
-                            ${h.Name} - ${h.Estrellas}☆
-                        </h3>
-                        <p> ${h.Email} </p>
-                        <p> ${h.Comentario} </p>
-                    </div>
-                </div>
-            </div> `;
-        });
-     }
+  // ─── EXPORTAR: convertir arreglo a JSON y descargar ───────────────────────
+  function exportarJSON() {
+    const datosJSON = JSON.stringify(habitaciones, null, 2);
+    const blob = new Blob([datosJSON], {type: "application/json"});
+    const enlace = document.createElement("a");
+    enlace.href = URL.createObjectURL(blob);
+    enlace.download = "comentarios.json";
+    enlace.click();
+  }
 
-     function agregarHabitacion(){
-        const nameValue = document.getElementById("Name").value.trim();
-        const stars = document.getElementById("range4").value.trim();
-        const emailValue = document.getElementById("email").value.trim();
-        const comentarioValue = document.getElementById("Comentario").value.trim();
+  // ─── IMPORTAR: convertir JSON a objetos JS y cargar ───────────────────────
+  function importarJSON() {
+    document.getElementById('archivoJSON').click();
+  }
 
-        if (nameValue === "" || emailValue === "" || comentarioValue === "") {
-            alert("Por favor completa todos los campos antes de publicar.");
-            return;
+  function cargarArchivoJSON(event) {
+    const archivo = event.target.files[0];
+    if (!archivo) return;
+
+    const lector = new FileReader();
+    lector.onload = function(e) {
+      try {
+        const datos = JSON.parse(e.target.result);  // Convertir JSON a objeto
+
+        // Validar estructura JSON antes de cargar
+        if (!validarEstructuraJSON(datos)) {
+          alert("❌ El archivo JSON no tiene una estructura válida.\nSe requieren los campos: Name, Estrellas, Email, Comentario.");
+          return;
         }
 
-        let nuevaHabitacion = {
-            Name: nameValue,
-            Estrellas: stars,
-            Email: emailValue,
-            Comentario: comentarioValue,
-        };
+        // Asignar IDs si no los tienen
+        let maxId = 0;
+        datos.forEach(d => {
+          if (!d.id) d.id = ++maxId;
+          else if (d.id > maxId) maxId = d.id;
+        });
+        nextId = maxId + 1;
 
-        habitaciones.push(nuevaHabitacion);
+        habitaciones = datos;
         mostrarHabitaciones();
-        document.getElementById("Name").value = "";
-        document.getElementById("range4").value = "";      
-        if (document.getElementById('rangeValue')) document.getElementById('rangeValue').textContent = '';
-        document.getElementById("email").value = "";
-        document.getElementById("Comentario").value = "";
-        document.getElementById('mensaje').textContent = '';
-    }
+        limpiarFiltros();
+        alert("✅ JSON importado correctamente. " + datos.length + " comentarios cargados.");
+      } catch(err) {
+        alert("❌ Error al leer el archivo JSON. Asegúrate de que sea un JSON válido.");
+      }
+    };
+    lector.readAsText(archivo);
+    event.target.value = ''; // reset input
+  }
+
+  // ─── Limpiar filtros ──────────────────────────────────────────────────────
+  function limpiarFiltros() {
+    document.getElementById('buscarInput').value = '';
+    document.getElementById('filtroEstrellas').value = '';
+    mostrarHabitaciones();
+  }
+
+  // ─── Eventos de búsqueda en tiempo real ──────────────────────────────────
+  document.getElementById('buscarInput').addEventListener('input', buscarComentarios);
+  document.getElementById('filtroEstrellas').addEventListener('change', buscarComentarios);
+
+  // ─── Inicializar ─────────────────────────────────────────────────────────
+  mostrarHabitaciones();
+</script>
+</body>
+</html>
 
     /*function descargarJSON(){ let datosJSON = JSON.stringify( habitaciones, null, 2 );
         let blob = new Blob( [datosJSON], {type:"application/json"} );
@@ -176,7 +412,4 @@
         enlace.href = URL.createObjectURL(blob);
         enlace.download = "habitaciones_actualizadas.json";
         enlace.click(); }*/
-    mostrarHabitaciones();
-    </script>
-</body>
-</html>
+  
