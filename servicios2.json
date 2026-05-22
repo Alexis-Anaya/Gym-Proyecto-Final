@@ -1,0 +1,54 @@
+[
+    {
+        "Tipo": "Aerobico",
+        "Servicio": "Caminadoras"
+    },
+    {
+        "Tipo": "Aerobico",
+        "Servicio": "Bicicleta Estatica"
+    },
+    {
+        "Tipo": "Aerobico",
+        "Servicio": "Máquina de Remo"
+    },
+    {
+        "Tipo": "Aerobico",
+        "Servicio": "Máquina Elíptica"
+    },
+    {
+        "Tipo": "Aerobico",
+        "Servicio": "Piscina"
+    },
+    {
+        "Tipo": "Fuerza",
+        "Servicio": "Pesas"
+    },
+    {
+        "Tipo": "Fuerza",
+        "Servicio": "Mancuernas"
+    },
+    {
+        "Tipo": "Fuerza",
+        "Servicio": "Kettlebells"
+    },
+    {
+        "Tipo": "Fuerza",
+        "Servicio": "Balones Medicinales"
+    },
+    {
+        "Tipo": "Flexibilidad",
+        "Servicio": "Barra para ejercicios"
+    },
+    {
+        "Tipo": "Flexibilidad",
+        "Servicio": "Clases de Yoga"
+    },
+    {
+        "Tipo": "Flexibilidad",
+        "Servicio": "Tapetes para estiramientos"
+    },
+    {
+        "Tipo": "Flexibilidad",
+        "Servicio": "Tapetes para estiramientos"
+    }
+]

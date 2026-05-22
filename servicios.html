@@ -155,6 +155,30 @@
     </section>
     <!-- El elemento que actuará como popover -->
 
+    <section class="mb-3"></section>
+    <section class="container mt-4 py-4 bg-white bg-opacity-50 rounded text-center">
+      <h2 style="margin-bottom: 2.5%;">Servicios que ofrecemos:</h2>
+    <div class="row">
+      <div style="width: 0;"></div>
+      <div class="col" id="contenedorServ">
+        <h3 style="padding-top: 5%; padding-bottom: 5%;">Ejercicios Aerobicos</h3>
+        <div id="Aerobico" class="text-start"></div>
+      </div>
+      <div style="width: 2%;""></div>
+      <div class="col" id="contenedorServ"> 
+        <h3 style="padding-top: 5%; padding-bottom: 5%;">Ejercicios De Fuerza</h3>
+        <div id="Fuerza" class="text-start"></div>
+      </div>
+      <div style="width: 2%;""></div>
+      <div class="col" id="contenedorServ">
+        <h3>Ejercicios De Flexibilidad</h3>
+        <div id="Flexibilidad" class="text-start"></div>
+      </div>
+      <div style="width: 0;"></div>
+    </div>
+    </section>
+    <section style="margin-bottom: 100px;"></section>
+
 
     <section style="margin-bottom: 100px;"></section>
     <footer class="bg-dark text-white text-center p-3 mt-4 fixed-bottom">
@@ -219,6 +243,65 @@
     cartaD.addEventListener("click", function() { 
     popoverD.showPopover(); 
     });
+
+//Script JSON
+let servicios2 = [];
+        fetch("servicios2.json")
+        .then(respuesta => respuesta.json())
+        .then(datos => { 
+            servicios2 = datos;
+            mostrarServicios();
+    });
+    /*Es necesario ejecutarlo en un servidor web, debido a que windows esta bloqueando el archivo JSON de manera local, lo que provoca un error en el fetch*/
+
+    function mostrarServicios(){ 
+        let Aerobico = document.getElementById("Aerobico");
+        let Fuerza = document.getElementById("Fuerza");
+        let Flexibilidad = document.getElementById("Flexibilidad");
+        Aerobico.innerHTML = "";
+        Fuerza.innerHTML = "";
+        Flexibilidad.innerHTML = "";
+        servicios2.forEach(h => {
+          const tipoRaw = (h.Tipo).toString();
+          if (tipoRaw === 'Aerobico'){
+            Aerobico.innerHTML += `
+                        <h4>
+                            ● ${h.Servicio}
+                        </h4>`;
+          } else if (tipoRaw === 'Fuerza'){
+            Fuerza.innerHTML += `
+              <h4>
+                ● ${h.Servicio}
+               </h4>`;
+          } else if(tipoRaw === 'Flexibilidad'){
+            Flexibilidad.innerHTML += `
+            <h4>
+               ● ${h.Servicio}
+              </h4>`;
+          }
+        });
+     }
+/*
+     function agregarHabitacion(){
+        let nuevaHabitacion = {
+            numero: document.getElementById("numero").value,
+            tipo: document.getElementById("tipo").value,
+            precio: document.getElementById("precio").value 
+        };
+        habitaciones.push(nuevaHabitacion);
+        mostrarHabitaciones();
+        document.getElementById("numero").value = "";
+        document.getElementById("tipo").value = "";
+        document.getElementById("precio").value = "";
+    }
+
+    function descargarJSON(){ let datosJSON = JSON.stringify( habitaciones, null, 2 );
+        let blob = new Blob( [datosJSON], {type:"application/json"} );
+        let enlace = document.createElement("a");
+        enlace.href = URL.createObjectURL(blob);
+        enlace.download = "habitaciones_actualizadas.json";
+        enlace.click(); }*/
+
     </script>
   </body>
 </html>

@@ -153,3 +153,9 @@ body {
   border-radius: 25px;
   padding: 1%;
 }
+
+#contenedorServ{
+  padding: 2%;
+  border-radius: 25px;
+  background-color: skyblue;
+}
