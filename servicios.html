@@ -176,10 +176,26 @@
       </div>
       <div style="width: 0;"></div>
     </div>
-    <button class="btn btn-success mt-4" onclick="descargarJSON()"> Agregar Servicio </button>
+    <button class="btn btn-warning mt-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Agregar Servicio</button>
     <button class="btn btn-success mt-4" onclick="descargarJSON()"> Descargar JSON Actualizado </button>
     </section>
     <section style="margin-bottom: 100px;"></section>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="background-color: goldenrod;">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Solo Empleados</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      <h3>Agregar Servicio</h3>
+        <input type="text" id="tipoN" class="form-control mb-2" placeholder="Tipo">
+        <h6>(Aerobico, Fuerza ó Flexibilidad)</h6>
+        <input type="text" id="servN" class="form-control mb-2" placeholder="Servicio">
+        <button class="btn btn-primary" onclick="agregarServicio()"> Agregar </button>
+    </div>
+  </div>
+</div>
 
 
     <section style="margin-bottom: 100px;"></section>
@@ -284,18 +300,21 @@ let servicios2 = [];
         });
      }
 
-     /*function agregarServicio(){
-        let nuevaHabitacion = {
-            numero: document.getElementById("numero").value,
-            tipo: document.getElementById("tipo").value,
-            precio: document.getElementById("precio").value 
-        };
-        habitaciones.push(nuevaHabitacion);
-        mostrarHabitaciones();
-        document.getElementById("numero").value = "";
-        document.getElementById("tipo").value = "";
-        document.getElementById("precio").value = "";
-    }*/
+     function agregarServicio() {
+    let nuevoServicio = {
+        Tipo: document.getElementById("tipoN").value.trim(),
+        Servicio: document.getElementById("servN").value.trim()
+    };
+
+    if (!nuevoServicio.Tipo || !nuevoServicio.Servicio) {
+        return;
+    }
+
+    servicios2.push(nuevoServicio);
+    mostrarServicios();
+    document.getElementById("tipoN").value = "";
+    document.getElementById("servN").value = "";
+}
 
     function descargarJSON(){ let datosJSON = JSON.stringify( servicios2, null, 2 );
         let blob = new Blob( [datosJSON], {type:"application/json"} );
