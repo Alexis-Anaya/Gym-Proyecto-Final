@@ -176,6 +176,8 @@
       </div>
       <div style="width: 0;"></div>
     </div>
+    <button class="btn btn-success mt-4" onclick="descargarJSON()"> Agregar Servicio </button>
+    <button class="btn btn-success mt-4" onclick="descargarJSON()"> Descargar JSON Actualizado </button>
     </section>
     <section style="margin-bottom: 100px;"></section>
 
@@ -281,8 +283,8 @@ let servicios2 = [];
           }
         });
      }
-/*
-     function agregarHabitacion(){
+
+     /*function agregarServicio(){
         let nuevaHabitacion = {
             numero: document.getElementById("numero").value,
             tipo: document.getElementById("tipo").value,
@@ -293,14 +295,14 @@ let servicios2 = [];
         document.getElementById("numero").value = "";
         document.getElementById("tipo").value = "";
         document.getElementById("precio").value = "";
-    }
+    }*/
 
-    function descargarJSON(){ let datosJSON = JSON.stringify( habitaciones, null, 2 );
+    function descargarJSON(){ let datosJSON = JSON.stringify( servicios2, null, 2 );
         let blob = new Blob( [datosJSON], {type:"application/json"} );
         let enlace = document.createElement("a");
         enlace.href = URL.createObjectURL(blob);
-        enlace.download = "habitaciones_actualizadas.json";
-        enlace.click(); }*/
+        enlace.download = "servicios_actualizado.json";
+        enlace.click(); }
 
     </script>
   </body>
